@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +31,10 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   TextField(
+                    controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: '...@gmail.com',
-                      labelText: 'Email',
+                      hintText: 'type your username here..',
+                      labelText: 'Username',
                     ),
                     onChanged: (String value) {
                       setState(() {});
@@ -70,7 +72,8 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage()));
+                                builder: (context) =>
+                                    HomePage(_controller.text)));
                       },
                       style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50),

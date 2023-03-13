@@ -4,12 +4,12 @@ import 'home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
-
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   TextField(
+                    controller: _controller,
                     decoration: const InputDecoration(
                       hintText: 'John',
                       labelText: 'Firstname',
@@ -42,6 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 16,
                   ),
                   TextField(
+                    controller: _controller,
                     decoration: const InputDecoration(
                       hintText: 'Doe',
                       labelText: 'Lastname',
@@ -55,8 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   TextField(
                     decoration: const InputDecoration(
-                      hintText: '...@gmail.com',
-                      labelText: 'Email',
+                      hintText: 'type username here..',
+                      labelText: 'Username',
                     ),
                     onChanged: (String value) {
                       setState(() {});
@@ -83,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage()));
+                                builder: (context) => const HomePage('Hadi')));
                       },
                       style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50),

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+class HomePage extends StatelessWidget {
+  final String username;
+  const HomePage(this.username, {Key? key}) : super(key: key);
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -25,14 +23,14 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text('Welcome!',
+                        children: [
+                          const Text('Welcome!',
                               style: TextStyle(
                                   fontSize: 12.0,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w300)),
-                          Text('Bibie Hadi',
-                              style: TextStyle(
+                          Text(username ?? 'Hadi',
+                              style: const TextStyle(
                                   fontSize: 16.0,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.bold))
